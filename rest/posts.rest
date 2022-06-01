@@ -1,0 +1,26 @@
+@host=http://localhost:1337
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU0MDUxMjI1LCJleHAiOjE2NTY2NDMyMjV9.9Pr5_2L8kclfLdmLpEm-huecvE1oZ5YJXmvraXpPb5s
+
+###
+
+# Login
+POST {{host}}/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "brino",
+  "password": "borrar"
+}
+
+###
+
+# List Posts
+GET {{host}}/api/posts
+
+###
+
+# List Posts with Author
+GET {{host}}/api/posts?populate[0]=author
+Authorization: Bearer {{token}}
+
+###
